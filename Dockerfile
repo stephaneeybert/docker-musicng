@@ -1,0 +1,33 @@
+FROM stephaneeybert/httpd:2.4.25
+
+RUN apt-get update \
+  && apt-get install -y bash \
+  && apt-get install -y unzip \
+  && apt-get install -y curl \
+  && apt-get install -y wget \
+  && apt-get install -y --no-install-recommends apt-utils \
+  && apt-get install -y locales \
+  && locale-gen en_GB \
+  && locale-gen fr_FR \
+  && locale-gen sv_SE \
+  && locale-gen nn_NO \
+  && localedef -i en_GB -f UTF-8 en_GB.UTF-8 \
+  && localedef -i fr_FR -f UTF-8 fr_FR.UTF-8 \
+  && localedef -i sv_SE -f UTF-8 sv_SE.UTF-8 \
+  && localedef -i nn_NO -f UTF-8 nn_NO.UTF-8
+
+WORKDIR /usr/bin/ngzero
+
+RUN groupadd -f apache && useradd -d /usr/bin/ngzero/ -g apache apache
+RUN chown -R apache:apache /usr/bin/ngzero/ \
+  && chmod -R 755 /usr/bin/ngzero/
+
+COPY expand-secrets.sh /usr/bin/ngzero/
+COPY start.sh /usr/bin/ngzero/
+
+COPY httpd.conf /usr/bin/apache/conf
+COPY httpd-ssl.conf /usr/bin/apache/conf/extra
+
+#ENTRYPOINT ["/usr/bin/tail", "-f", "/dev/null"]
+ENTRYPOINT ["/bin/bash", "/usr/bin/ngzero/start.sh"]
+

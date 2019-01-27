@@ -1,0 +1,12 @@
+<VirtualHost *:80>
+  ServerName dev.ngzero.thalasoft.com
+  ServerAlias dev.ngzero.thalasoft.com
+  DocumentRoot /usr/bin/ngzero/www/
+  CustomLog logs/ngzero.log combined
+  <Directory "/usr/bin/ngzero/www">
+    AllowOverride All
+    Require all granted
+  </Directory>
+  AddDefaultCharset UTF-8
+</VirtualHost>
+

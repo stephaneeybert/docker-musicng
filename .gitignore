@@ -1,0 +1,7 @@
+docker-secrets.sh
+volumes
+*.sql
+*.zip
+*.tar
+*.gz
+*.svn

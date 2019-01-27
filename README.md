@@ -1,0 +1,61 @@
+- Installing the application  
+
+Add the hostname in development  
+Have the entry `127.0.1.1 dev.ngzero.thalasoft.com` in the `/etc/hosts` file  
+Have the entry `dev.ngzero.thalasoft.com` in the virtual host
+
+Add the hostname in production  
+Have the entry `ngzero.thalasoft.com` as an A record redirecting to the domain name IP address
+
+Create the volumes directories
+```
+volumes/
+├── code
+└── logs
+```
+
+Deploy the source code  
+
+Build the project
+```
+./build.sh
+```
+
+Build the archive
+```
+cd ~/dev/js/projects/angular/ng-zero
+ng build --prod
+zip -r ng-zero-dist.zip dist
+
+```
+
+Copy the archive into the `code` directory
+```
+cp -R ~/dev/js/projects/angular/ng-zero/ng-zero-dist.zip volumes/code/
+unzip -d volumes/code/ volumes/code/ng-zero-dist.zip
+```
+```
+scp volumes/code/ng-zero-dist.zip stephane@165.227.161.233:/home/stephane/dev/docker/projects/ngzero/volumes/code/
+```
+
+Create the secrets
+```
+./docker-secrets.sh
+```
+
+- Running the application  
+
+Start the application
+```
+docker stack deploy --compose-file docker-compose-dev.yml ngzero
+```
+
+Start the application in production
+```
+docker stack deploy --compose-file docker-compose.yml ngzero
+```
+
+Stop the application
+```
+docker stack rm ngzero
+```

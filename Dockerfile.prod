@@ -1,0 +1,4 @@
+FROM stephaneeybert/ngzero
+
+COPY httpd-vhosts.conf /usr/bin/apache/conf/extra/
+
