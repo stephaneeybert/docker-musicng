@@ -24,6 +24,14 @@ Build the project
 Build the archive
 ```
 cd ~/dev/js/projects/angular/ng-zero
+ng build
+zip -r ng-zero-dist.zip dist
+
+```
+
+Build the archive for production
+```
+cd ~/dev/js/projects/angular/ng-zero
 ng build --prod
 zip -r ng-zero-dist.zip dist
 
