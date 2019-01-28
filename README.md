@@ -44,6 +44,9 @@ unzip -d volumes/code/ volumes/code/ng-zero-dist.zip
 ```
 ```
 scp ~/dev/js/projects/angular/ng-zero/ng-zero-dist.zip stephane@165.227.161.233:/home/stephane/dev/docker/projects/ngzero/volumes/code/
+ssh stephane@165.227.161.233
+cd ~/dev/docker/projects/ngzero
+unzip -d volumes/code/ volumes/code/ng-zero-dist.zip
 ```
 
 Create the secrets
