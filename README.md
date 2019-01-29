@@ -10,8 +10,7 @@ Have the entry `ngzero.thalasoft.com` as an A record redirecting to the domain n
 Create the volumes directories
 ```
 volumes/
-├── code
-└── logs
+└── code
 ```
 
 Deploy the source code  
@@ -63,7 +62,7 @@ docker stack deploy --compose-file docker-compose-dev.yml ngzero
 
 Open the browser
 ```
-http://dev.ngzero.thalasoft.com:81
+http://dev.ngzero.thalasoft.com:82
 ```
 
 Start the application in production
@@ -78,6 +77,6 @@ docker stack rm ngzero
 
 Open the browser
 ```
-http://ngzero.thalasoft.com:81
+http://ngzero.thalasoft.com:82
 ```
 
