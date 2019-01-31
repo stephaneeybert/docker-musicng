@@ -4,12 +4,14 @@ services:
     image: thalasoft.com:5000/ngzero
     ports:
       - "82:80"
+      - "83:443"
     networks:
       - ngzero
       - common
     volumes:
       - "~/dev/docker/projects/ngzero/volumes/code/dist:/usr/bin/ngzero/www"
       - "~/dev/docker/projects/common/volumes/logs:/usr/bin/apache/logs"
+      - "~/dev/docker/projects/common/volumes/letsencrypt/certbot/conf/live/thalasoft.com:/usr/bin/ngzero/letsencrypt"
     environment:
       HOST_USER_ID: ${CURRENT_UID}
       HOST_GROUP_ID: ${CURRENT_GID}      
