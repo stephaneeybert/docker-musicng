@@ -4,7 +4,7 @@ services:
     image: localhost:5000/ngzero
     ports:
       - "82:80"
-      - "83:443"
+      - "443:443"
     networks:
       - ngzero
       - common
