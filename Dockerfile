@@ -16,18 +16,18 @@ RUN apt-get update \
   && localedef -i sv_SE -f UTF-8 sv_SE.UTF-8 \
   && localedef -i nn_NO -f UTF-8 nn_NO.UTF-8
 
-WORKDIR /usr/bin/ngzero
+WORKDIR /usr/local/ngzero
 
-RUN groupadd -f apache && useradd -d /usr/bin/ngzero/ -g apache apache
-RUN chown -R apache:apache /usr/bin/ngzero/ \
-  && chmod -R 755 /usr/bin/ngzero/
+RUN groupadd -f apache && useradd -d /usr/local/ngzero/ -g apache apache
+RUN chown -R apache:apache /usr/local/ngzero/ \
+  && chmod -R 755 /usr/local/ngzero/
 
-COPY expand-secrets.sh /usr/bin/ngzero/
-COPY start.sh /usr/bin/ngzero/
+COPY expand-secrets.sh /usr/local/ngzero/
+COPY start.sh /usr/local/ngzero/
 
-COPY httpd.conf /usr/bin/apache/conf
-COPY httpd-ssl.conf /usr/bin/apache/conf/extra
+COPY httpd.conf /usr/local/apache/conf
+COPY httpd-ssl.conf /usr/local/apache/conf/extra
 
 #ENTRYPOINT ["/usr/bin/tail", "-f", "/dev/null"]
-ENTRYPOINT ["/bin/bash", "/usr/bin/ngzero/start.sh"]
+ENTRYPOINT ["/bin/bash", "/usr/local/ngzero/start.sh"]
 
