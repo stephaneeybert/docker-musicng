@@ -9,9 +9,9 @@ services:
       - ngzero
       - common
     volumes:
-      - "~/dev/docker/projects/ngzero/volumes/code/dist:/usr/bin/ngzero/www"
-      - "~/dev/docker/projects/common/volumes/logs:/usr/bin/apache/logs"
-      - "~/dev/docker/projects/common/volumes/letsencrypt/certbot/conf/live/thalasoft.com:/usr/bin/ngzero/letsencrypt"        
+      - "~/dev/docker/projects/ngzero/volumes/code/dist:/usr/local/ngzero/www"
+      - "~/dev/docker/projects/common/volumes/logs:/usr/local/apache/logs"
+      - "~/dev/docker/projects/common/volumes/letsencrypt/certbot/conf/live/thalasoft.com:/usr/local/ngzero/letsencrypt"        
     environment:
       HOST_USER_ID: ${CURRENT_UID}
       HOST_GROUP_ID: ${CURRENT_GID}      

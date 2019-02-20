@@ -1,4 +1,4 @@
 FROM stephaneeybert/ngzero
 
-COPY httpd-vhosts.conf.dev /usr/bin/apache/conf/extra/httpd-vhosts.conf
+COPY httpd-vhosts.conf.dev /usr/local/apache/conf/extra/httpd-vhosts.conf
 

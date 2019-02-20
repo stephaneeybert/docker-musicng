@@ -1,9 +1,9 @@
 <VirtualHost *:80>
-  ServerName dev.ngzero.thalasoft.com
-  ServerAlias dev.ngzero.thalasoft.com
-  DocumentRoot /usr/bin/ngzero/www/
+  ServerName dev.thalasoft.com
+  ServerAlias dev.thalasoft.com
+  DocumentRoot /usr/local/ngzero/www/
   CustomLog logs/ngzero.log combined
-  <Directory "/usr/bin/ngzero/www">
+  <Directory "/usr/local/ngzero/www">
     AllowOverride All
     Require all granted
   </Directory>
