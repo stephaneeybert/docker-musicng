@@ -1,8 +1,7 @@
 - Installing the application  
 
 Add the hostname in development  
-Have the entry `127.0.1.1 dev.ngzero.thalasoft.com` in the `/etc/hosts` file  
-Have the entry `dev.ngzero.thalasoft.com` in the virtual host
+Have the entry `127.0.1.1 dev.thalasoft.com` in the `/etc/hosts` file  
 
 Add the hostname in production  
 Have the entry `ngzero.thalasoft.com` as an A record redirecting to the domain name IP address
@@ -62,7 +61,7 @@ docker stack deploy --compose-file docker-compose-dev.yml ngzero
 
 Open the browser
 ```
-http://dev.ngzero.thalasoft.com:82
+http://dev.thalasoft.com:82
 ```
 
 Start the application in production
