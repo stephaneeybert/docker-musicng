@@ -61,7 +61,7 @@ docker stack deploy --compose-file docker-compose-dev.yml ngzero
 
 Open the browser
 ```
-http://dev.thalasoft.com:82
+http://dev.thalasoft.com:84
 ```
 
 Start the application in production
@@ -69,13 +69,13 @@ Start the application in production
 docker stack deploy --compose-file docker-compose.yml ngzero
 ```
 
+Open the browser
+```
+http://ngzero.thalasoft.com
+```
+
 Stop the application
 ```
 docker stack rm ngzero
-```
-
-Open the browser
-```
-http://ngzero.thalasoft.com:82
 ```
 
