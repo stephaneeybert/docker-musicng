@@ -24,15 +24,6 @@ Build the archive
 cd ~/dev/js/projects/angular/ng-zero
 ng build
 zip -r ng-zero-dist.zip dist
-
-```
-
-Build the archive for production
-```
-cd ~/dev/js/projects/angular/ng-zero
-ng build --prod
-zip -r ng-zero-dist.zip dist
-
 ```
 
 Copy the archive into the `code` directory
@@ -40,6 +31,15 @@ Copy the archive into the `code` directory
 cp -R ~/dev/js/projects/angular/ng-zero/ng-zero-dist.zip volumes/code/
 unzip -d volumes/code/ volumes/code/ng-zero-dist.zip
 ```
+
+Build the archive for production
+```
+cd ~/dev/js/projects/angular/ng-zero
+ng build --prod
+zip -r ng-zero-dist.zip dist
+```
+
+Copy the archive into the `code` directory
 ```
 scp ~/dev/js/projects/angular/ng-zero/ng-zero-dist.zip stephane@...:/home/stephane/dev/docker/projects/ngzero/volumes/code/
 ssh stephane@...
