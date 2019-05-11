@@ -14,11 +14,6 @@ volumes/
 
 Deploy the source code  
 
-Build the project
-```
-./build.sh
-```
-
 Build the archive
 ```
 cd ~/dev/js/projects/angular/ng-zero
