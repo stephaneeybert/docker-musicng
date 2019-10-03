@@ -7,27 +7,37 @@ Have the entry `127.0.1.1 dev.thalasoft.com` in the `/etc/hosts` file
 
 Build the images
 ```
-cd ~/dev/docker/projects/ng-zero;
+cd ~/dev/docker/projects/ngzero
 ./build.sh
 ```
 
+On the remote
+
+Create the project directory
+```
+mkdir -p ~/dev/docker/projects/ngzero
+```
+
+On the local
+
 Copy some files
 ```
-scp ~/dev/docker/projects/ng-zero/docker-compose.yml stephane@thalasoft.com:~/dev/docker/projects/ng-zero
+scp ~/dev/docker/projects/ngzero/docker-compose.yml stephane@thalasoft.com:~/dev/docker/projects/ngzero
 ```
 
 Build the archive
 ```
 cd ~/dev/js/projects/angular/ng-zero
 ng build
-zip -r ng-zero-dist.zip dist
+zip -r ngzero-dist.zip dist
 ```
 
 Build the archive for production
 ```
-cd ~/dev/js/projects/angular/ng-zero
+cd ~/dev/js/projects/angular/ngzero
 ng build --prod
-zip -r ng-zero-dist.zip dist
+zip -r ngzero-dist.zip dist
+scp ngzero-dist.zip stephane@thalasoft.com:~/dev/docker/projects/ngzero/volumes/code
 ```
 
 On the remote
@@ -39,29 +49,23 @@ Have the entry `ngzero.thalasoft.com` as an A record redirecting to the domain n
 
 Create the volume directories
 ```
-mkdir -p ~/dev/docker/projects/ng-zero/volumes/code;
+mkdir -p ~/dev/docker/projects/ngzero/volumes/code;
 ```
 
 Pull the images
 ```  
-docker pull thalasoft.com:5000/ng-zero;
+docker pull thalasoft.com:5000/ngzero;
 ```
 
 Unpack the archive file
 ```
 cd ~/dev/docker/projects/ngzero
-unzip -d volumes/code/ volumes/code/ng-zero-dist.zip
+unzip -d ~/dev/docker/projects/ngzero/volumes/code/ ~/dev/docker/projects/ngzero/volumes/code/ngzero-dist.zip
 ```
 
-Create the secrets
+Start the application in dev
 ```
-./docker-secrets.sh
-```
-
-- Running the application  
-
-Start the application
-```
+cd ~/dev/docker/projects/ngzero
 docker stack deploy --compose-file docker-compose-dev.yml ngzero
 ```
 
@@ -78,7 +82,7 @@ docker stack deploy --compose-file docker-compose.yml ngzero
 
 Open the browser
 ```
-http://ngzero.thalasoft.com
+https://ngzero.thalasoft.com
 ```
 
 Stopping the application
