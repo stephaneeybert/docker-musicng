@@ -60,7 +60,7 @@ docker pull thalasoft.com:5000/ngzero;
 Unpack the archive file
 ```
 cd ~/dev/docker/projects/ngzero
-unzip -d ~/dev/docker/projects/ngzero/volumes/code/ ~/dev/docker/projects/ngzero/volumes/code/ngzero-dist.zip
+unzip -o -d ~/dev/docker/projects/ngzero/volumes/code/ ~/dev/docker/projects/ngzero/volumes/code/ngzero-dist.zip
 ```
 
 Start the application in dev
