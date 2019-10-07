@@ -25,13 +25,6 @@ Copy some files
 scp ~/dev/docker/projects/musicng/docker-compose.yml stephane@thalasoft.com:~/dev/docker/projects/musicng
 ```
 
-Build the archive
-```
-cd ~/dev/js/projects/angular/musicng
-ng build
-zip -r musicng-dist.zip dist
-```
-
 Build the archive for production
 ```
 cd ~/dev/js/projects/angular/musicng
