@@ -1,0 +1,51 @@
+<mat-form-field>
+  <input matInput [(ngModel)]="searchTerm" (appOnDebounce)="search($event)" placeholder="Search..." autocomplete="off">
+</mat-form-field>
+
+<button (appOnDebounceClick)="logDebounceClick()" [debounceTime]="700">Debounced Click</button>
+
+<app-user-edit (userEditedEvent)="refreshListForUser($event)" label="Add a user"></app-user-edit>
+
+<div class="example-container mat-elevation-z8">
+	<div class="example-loading-shade" *ngIf="isLoadingResults || isRateLimitReached">
+		<mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+		<div class="example-rate-limit-reached" *ngIf="isRateLimitReached">
+			The user api rate limit has been reached. It will be reset in one minute.
+		</div>
+	</div>
+
+	<div>
+		<table class="" mat-table [dataSource]="dataSource" matSort matSortActive="email" matSortDisableClear matSortDirection="asc">
+			<ng-container matColumnDef="firstname">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>Firstname</th>
+				<td mat-cell *matCellDef="let user">{{user.firstname}}</td>
+			</ng-container>
+
+			<ng-container matColumnDef="lastname">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header>Lastname</th>
+				<td mat-cell *matCellDef="let user">{{user.lastname}}</td>
+			</ng-container>
+
+			<ng-container matColumnDef="confirmed">
+				<th mat-header-cell *matHeaderCellDef>Confirmed</th>
+				<td mat-cell *matCellDef="let user">
+					<app-user-confirmed [userId]="user.id" (confirmedChange)="displayConfirmed($event)"></app-user-confirmed>
+				</td>
+			</ng-container>
+
+			<ng-container matColumnDef="actions">
+				<th mat-header-cell *matHeaderCellDef>Actions</th>
+				<td mat-cell *matCellDef="let user">
+          <button mat-button (click)="view(user);">View</button>
+          <app-user-edit [existingUser]="user" (userEditedEvent)="refreshListForUser($event)"></app-user-edit>
+					<button mat-button (click)="delete(user)">Delete</button>
+				</td>
+			</ng-container>
+
+			<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+			<tr mat-row *matRowDef="let columnName; columns: displayedColumns;"></tr>
+		</table>
+	</div>
+
+	<mat-paginator [pageIndex]="currentPageNumber" [length]="totalElements" [pageSize]="elementsPerPage" [pageSizeOptions]="pageSizeOptions" [showFirstLastButtons]="true"></mat-paginator>
+</div>
