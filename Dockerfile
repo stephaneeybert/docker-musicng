@@ -16,18 +16,18 @@ RUN apt-get update \
   && localedef -i sv_SE -f UTF-8 sv_SE.UTF-8 \
   && localedef -i nn_NO -f UTF-8 nn_NO.UTF-8
 
-WORKDIR /usr/local/ngzero
+WORKDIR /usr/local/musicng
 
-RUN groupadd -f apache && useradd -d /usr/local/ngzero/ -g apache apache
-RUN chown -R apache:apache /usr/local/ngzero/ \
-  && chmod -R 755 /usr/local/ngzero/
+RUN groupadd -f apache && useradd -d /usr/local/musicng/ -g apache apache
+RUN chown -R apache:apache /usr/local/musicng/ \
+  && chmod -R 755 /usr/local/musicng/
 
-COPY expand-secrets.sh /usr/local/ngzero/
-COPY start.sh /usr/local/ngzero/
+COPY expand-secrets.sh /usr/local/musicng/
+COPY start.sh /usr/local/musicng/
 
 COPY httpd.conf /usr/local/apache/conf
 COPY httpd-ssl.conf /usr/local/apache/conf/extra
 
 #ENTRYPOINT ["/usr/bin/tail", "-f", "/dev/null"]
-ENTRYPOINT ["/bin/bash", "/usr/local/ngzero/start.sh"]
+ENTRYPOINT ["/bin/bash", "/usr/local/musicng/start.sh"]
 

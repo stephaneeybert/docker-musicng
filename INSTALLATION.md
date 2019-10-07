@@ -7,7 +7,7 @@ Have the entry `127.0.1.1 dev.thalasoft.com` in the `/etc/hosts` file
 
 Build the images
 ```
-cd ~/dev/docker/projects/ngzero
+cd ~/dev/docker/projects/musicng
 ./build.sh
 ```
 
@@ -15,29 +15,29 @@ On the remote
 
 Create the project directory
 ```
-mkdir -p ~/dev/docker/projects/ngzero
+mkdir -p ~/dev/docker/projects/musicng
 ```
 
 On the local
 
 Copy some files
 ```
-scp ~/dev/docker/projects/ngzero/docker-compose.yml stephane@thalasoft.com:~/dev/docker/projects/ngzero
+scp ~/dev/docker/projects/musicng/docker-compose.yml stephane@thalasoft.com:~/dev/docker/projects/musicng
 ```
 
 Build the archive
 ```
-cd ~/dev/js/projects/angular/ng-zero
+cd ~/dev/js/projects/angular/musicng
 ng build
-zip -r ngzero-dist.zip dist
+zip -r musicng-dist.zip dist
 ```
 
 Build the archive for production
 ```
-cd ~/dev/js/projects/angular/ngzero
+cd ~/dev/js/projects/angular/musicng
 ng build --prod
-zip -r ngzero-dist.zip dist
-scp ngzero-dist.zip stephane@thalasoft.com:~/dev/docker/projects/ngzero/volumes/code
+zip -r musicng-dist.zip dist
+scp musicng-dist.zip stephane@thalasoft.com:~/dev/docker/projects/musicng/volumes/code
 ```
 
 On the remote
@@ -45,28 +45,28 @@ On the remote
 Open some ports on the firewall
 
 Add the hostname in production  
-Have the entry `ngzero.thalasoft.com` as an A record redirecting to the domain name IP address
+Have the entry `musicng.thalasoft.com` as an A record redirecting to the domain name IP address
 
 Create the volume directories
 ```
-mkdir -p ~/dev/docker/projects/ngzero/volumes/code;
+mkdir -p ~/dev/docker/projects/musicng/volumes/code;
 ```
 
 Pull the images
 ```  
-docker pull thalasoft.com:5000/ngzero;
+docker pull thalasoft.com:5000/musicng;
 ```
 
 Unpack the archive file
 ```
-cd ~/dev/docker/projects/ngzero
-unzip -o -d ~/dev/docker/projects/ngzero/volumes/code/ ~/dev/docker/projects/ngzero/volumes/code/ngzero-dist.zip
+cd ~/dev/docker/projects/musicng
+unzip -o -d ~/dev/docker/projects/musicng/volumes/code/ ~/dev/docker/projects/musicng/volumes/code/musicng-dist.zip
 ```
 
 Start the application in dev
 ```
-cd ~/dev/docker/projects/ngzero
-docker stack deploy --compose-file docker-compose-dev.yml ngzero
+cd ~/dev/docker/projects/musicng
+docker stack deploy --compose-file docker-compose-dev.yml musicng
 ```
 
 Open the browser
@@ -76,17 +76,17 @@ http://dev.thalasoft.com:84
 
 Start the application in production
 ```
-cd ~/dev/docker/projects/ngzero
-docker stack deploy --compose-file docker-compose.yml ngzero
+cd ~/dev/docker/projects/musicng
+docker stack deploy --compose-file docker-compose.yml musicng
 ```
 
 Open the browser
 ```
-https://ngzero.thalasoft.com
+https://musicng.thalasoft.com
 ```
 
 Stopping the application
 ```
-docker stack rm ngzero
+docker stack rm musicng
 ```
 

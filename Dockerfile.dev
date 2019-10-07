@@ -1,4 +1,4 @@
-FROM stephaneeybert/ngzero
+FROM stephaneeybert/musicng
 
 COPY httpd-vhosts.conf.dev /usr/local/apache/conf/extra/httpd-vhosts.conf
 

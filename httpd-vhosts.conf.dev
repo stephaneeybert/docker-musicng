@@ -1,9 +1,9 @@
 <VirtualHost *:80>
   ServerName dev.thalasoft.com
   ServerAlias dev.thalasoft.com
-  DocumentRoot /usr/local/ngzero/www/
-  CustomLog logs/ngzero.log combined
-  <Directory "/usr/local/ngzero/www">
+  DocumentRoot /usr/local/musicng/www/
+  CustomLog logs/musicng.log combined
+  <Directory "/usr/local/musicng/www">
     AllowOverride All
     Require all granted
   </Directory>
@@ -13,16 +13,16 @@
 <VirtualHost *:443>
   ServerName dev.thalasoft.com
   ServerAlias dev.thalasoft.com
-  DocumentRoot /usr/local/ngzero/www/
-  CustomLog logs/ngzero.log combined
-  <Directory "/usr/local/ngzero/www">
+  DocumentRoot /usr/local/musicng/www/
+  CustomLog logs/musicng.log combined
+  <Directory "/usr/local/musicng/www">
     AllowOverride All
     Require all granted
   </Directory>
   AddDefaultCharset UTF-8
   SSLEngine on
   SSLProxyEngine on
-  SSLCertificateFile "/usr/local/ngzero/letsencrypt/current-cert.pem"
-  SSLCertificateKeyFile "/usr/local/ngzero/letsencrypt/current-privkey.pem"
-  SSLCertificateChainFile "/usr/local/ngzero/letsencrypt/current-chain.pem"
+  SSLCertificateFile "/usr/local/musicng/letsencrypt/current-cert.pem"
+  SSLCertificateKeyFile "/usr/local/musicng/letsencrypt/current-privkey.pem"
+  SSLCertificateChainFile "/usr/local/musicng/letsencrypt/current-chain.pem"
 </VirtualHost>

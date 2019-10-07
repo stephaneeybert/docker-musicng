@@ -1,17 +1,17 @@
 version: "3.5"
 services:
-  ngzero:
-    image: thalasoft.com:5000/ngzero
+  musicng:
+    image: thalasoft.com:5000/musicng
     ports:
       - "82:80"
       - "443:443"
     networks:
-      - ngzero
+      - musicng
       - common
     volumes:
-      - "~/dev/docker/projects/ngzero/volumes/code/dist:/usr/local/ngzero/www"
+      - "~/dev/docker/projects/musicng/volumes/code/dist:/usr/local/musicng/www"
       - "~/dev/docker/projects/common/volumes/logs:/usr/local/apache/logs"
-      - "~/dev/docker/projects/common/volumes/letsencrypt/certbot/conf/live/thalasoft.com:/usr/local/ngzero/letsencrypt"
+      - "~/dev/docker/projects/common/volumes/letsencrypt/certbot/conf/live/thalasoft.com:/usr/local/musicng/letsencrypt"
     environment:
       HOST_USER_ID: ${CURRENT_UID}
       HOST_GROUP_ID: ${CURRENT_GID}      
@@ -28,8 +28,8 @@ services:
       timeout: 10s
       retries: 3  
 networks:
-  ngzero:  
-    name: ngzero
+  musicng:  
+    name: musicng
   common:
     external: true
     name: common
