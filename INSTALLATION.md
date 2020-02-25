@@ -3,7 +3,7 @@ Installation
 On the local
 
 Add the hostname in development  
-Have the entry `127.0.1.1 dev.thalasoft.com` in the `/etc/hosts` file  
+Have the entry `127.0.1.1 dev.musicng.thalasoft.com` in the `/etc/hosts` file
 
 Build the images
 ```
@@ -31,6 +31,12 @@ cd ~/dev/js/projects/angular/musicng
 ng build --prod
 zip -r musicng-dist.zip dist
 scp musicng-dist.zip stephane@thalasoft.com:~/dev/docker/projects/musicng/volumes/code
+```
+
+Unpack the archive file
+```
+cd ~/dev/docker/projects/musicng
+unzip -o -d ~/dev/docker/projects/musicng/volumes/code/ ~/dev/js/projects/angular/musicng/musicng-dist.zip
 ```
 
 On the remote
@@ -64,7 +70,7 @@ docker stack deploy --compose-file docker-compose-dev.yml musicng
 
 Open the browser
 ```
-http://dev.thalasoft.com:84
+http://dev.musicng.thalasoft.com:84
 ```
 
 Start the application in production
