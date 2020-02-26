@@ -20,9 +20,9 @@
     Require all granted
   </Directory>
   AddDefaultCharset UTF-8
-  SSLEngine on
-  SSLProxyEngine on
-  SSLCertificateFile "/usr/local/musicng/letsencrypt/current-cert.pem"
-  SSLCertificateKeyFile "/usr/local/musicng/letsencrypt/current-privkey.pem"
-  SSLCertificateChainFile "/usr/local/musicng/letsencrypt/current-chain.pem"
+#  SSLEngine on
+#  SSLProxyEngine on
+#  SSLCertificateFile "/usr/local/musicng/letsencrypt/current-cert.pem"
+#  SSLCertificateKeyFile "/usr/local/musicng/letsencrypt/current-privkey.pem"
+#  SSLCertificateChainFile "/usr/local/musicng/letsencrypt/current-chain.pem"
 </VirtualHost>

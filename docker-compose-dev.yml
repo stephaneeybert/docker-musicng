@@ -11,7 +11,7 @@ services:
     volumes:
       - "~/dev/docker/projects/musicng/volumes/code/dist:/usr/local/musicng/www"
       - "~/dev/docker/projects/common/volumes/logs:/usr/local/apache/logs"
-      - "~/dev/docker/projects/common/volumes/letsencrypt/certbot/conf/live/thalasoft.com:/usr/local/musicng/letsencrypt"
+#      - "~/dev/docker/projects/common/volumes/letsencrypt/certbot/conf/live/thalasoft.com:/usr/local/musicng/letsencrypt"
     environment:
       HOST_USER_ID: ${CURRENT_UID}
       HOST_GROUP_ID: ${CURRENT_GID}      
