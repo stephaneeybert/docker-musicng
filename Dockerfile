@@ -22,7 +22,6 @@ RUN groupadd -f apache && useradd -d /usr/local/musicng/ -g apache apache
 RUN chown -R apache:apache /usr/local/musicng/ \
   && chmod -R 755 /usr/local/musicng/
 
-COPY expand-secrets.sh /usr/local/musicng/
 COPY start.sh /usr/local/musicng/
 
 COPY httpd.conf /usr/local/apache/conf
