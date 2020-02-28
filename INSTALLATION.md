@@ -71,7 +71,6 @@ docker pull thalasoft.com:5000/musicng;
 
 Unpack the archive file
 ```
-cd ~/dev/docker/projects/musicng
 unzip -o -d ~/dev/docker/projects/musicng/volumes/code/ ~/dev/docker/projects/musicng/volumes/code/musicng-dist.zip
 ```
 
