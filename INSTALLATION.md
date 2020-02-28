@@ -38,7 +38,6 @@ scp musicng-dist.zip stephane@thalasoft.com:~/dev/docker/projects/musicng/volume
 
 Unpack the archive file
 ```
-cd ~/dev/docker/projects/musicng
 unzip -o -d ~/dev/docker/projects/musicng/volumes/code/ ~/dev/js/projects/angular/musicng/musicng-dist.zip
 ```
 
