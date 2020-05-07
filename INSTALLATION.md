@@ -26,6 +26,7 @@ Build the archive for dev
 cd ~/dev/js/projects/angular/musicng
 ng build
 zip -r musicng-dist.zip dist
+cp musicng-dist.zip ~/dev/docker/projects/musicng/volumes/code
 ```
 
 Build the archive for production
@@ -38,7 +39,7 @@ scp musicng-dist.zip stephane@thalasoft.com:~/dev/docker/projects/musicng/volume
 
 Unpack the archive file
 ```
-unzip -o -d ~/dev/docker/projects/musicng/volumes/code/ ~/dev/js/projects/angular/musicng/musicng-dist.zip
+unzip -o -d ~/dev/docker/projects/musicng/volumes/code/ ~/dev/docker/projects/musicng/volumes/code/musicng-dist.zip
 ```
 
 Start the application in dev
