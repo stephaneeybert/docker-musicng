@@ -16,6 +16,9 @@ RUN apt-get update \
   && localedef -i sv_SE -f UTF-8 sv_SE.UTF-8 \
   && localedef -i nn_NO -f UTF-8 nn_NO.UTF-8
 
+RUN mkdir -p /usr/local/musicng \
+  && chmod 755 /usr/local/musicng
+
 WORKDIR /usr/local/musicng
 
 RUN groupadd -f apache && useradd -d /usr/local/musicng/ -g apache apache
